@@ -102,14 +102,15 @@ const checkAnswer = () => {
   const currentIndex = playerSequence.length - 1;
 
   if (playerSequence[currentIndex] !== ComputerSequence[currentIndex]) {
-    turnDisplay.textContent = 'NO!';
+    turnDisplay.textContent = 'Wrong!';
     if (strictMode) {
       setTimeout(startGame, 1000);
     } else {
       setTimeout(() => {
+        playerSequence = [];
         turnDisplay.textContent = level;
         playSequence();
-      }, 10);
+      }, 1000);
     }
     return;
   }
@@ -170,7 +171,7 @@ Strict.addEventListener('click', initializeGameStrict);
 startButton.addEventListener('click', () => {
   if (PowerOn) {
     startGame();
-     turnDisplay.textContent = '0';
+     
   }
 });
 

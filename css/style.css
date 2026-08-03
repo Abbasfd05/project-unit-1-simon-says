@@ -1,18 +1,23 @@
 
 body {
-  background-color: black;
+  background:url(https://i.postimg.cc/2yyV52d0/grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall.jpg);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+  background-size: cover;
 }
 
 h1 {
- h1 {
-  font-family: 'Original Surfer', cursive;
-  
-}
+
+  font-family:Lobster, cursive;
+  color: #DCD427;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
 }
 #outerCircle {
   width: 400px;
