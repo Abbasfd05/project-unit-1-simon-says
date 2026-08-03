@@ -3,11 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simon Says Game</title>
+    
     <link rel="stylesheet" href="./css/style.css"/>
   <script defer src="./js/app.js"></script> 
+   <audio id="clip1">
+  	<source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></source>
+  </audio>
+  <audio id="clip2">
+  	<source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></source>
+  </audio>
+  <audio id="clip3">
+  	<source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></source>
+  </audio>
+  <audio id="clip4">
+  	<source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></source>
+  </audio>
 </head>
 <body>
-    
+  <h1 align="center" style="color:tomato"><italic><bold>Simon Says Game</bold></italic></h1>
+    <div id="outerCircle">
+      <div id="topLeft"></div>
+      <div id="topRight"></div>
+      <div id="bottomLeft"></div>
+      <div id="bottomRight"></div>
+      <div id="innerCircle">
+        <div id="switchesOptions">
+          <input type="checkbox" name="switches" id="on" checked>
+          <label for="on">Power</label>
+          <input type="checkbox" name="switches" id="strict">
+          <label for="strict">STRICT</label>
+  
+        </div>
+        <div id="start" class="My1stText">Start</div>
+        <div class="My2ndText">Count: <span id="turn"></span></div>
+      </div>
+    </div>
 </body>
 </html>
