@@ -66,7 +66,9 @@ const playSequence = () => {
   let i = 0;
 
   const interval = setInterval(() => {
-    flashButton(ComputerSequence[i]);
+    const id = ComputerSequence[i];
+    flashButton(id);     
+    soundMap[id]();       
     i++;
     if (i >= ComputerSequence.length) {
       clearInterval(interval);
@@ -163,6 +165,12 @@ function four() {
   noise = true;
 
 }
+const soundMap = {
+  topRight: one,
+  topLeft: two,
+  bottomLeft: three,
+  bottomRight: four
+};
 
 //----------------------------- Event Listeners -----------------------------//
 Power.addEventListener('click', initializeGame);
