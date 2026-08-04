@@ -17,6 +17,7 @@ let strictMode = false;
 let PowerOn = false;
 let playerTurn = false;
 let noise=true;
+let triesLeft = 3;
 
 //-------------------------------- Functions --------------------------------//
 
@@ -50,7 +51,7 @@ const resetGame = () => {
   playerSequence = [];
   level = 0;
   playerTurn = false;
-  
+  triesLeft=3;
 };
 
 const flashButton = (id) => {
@@ -103,19 +104,27 @@ const getPlayerChoice = (event) => {
 const checkAnswer = () => {
   const currentIndex = playerSequence.length - 1;
 
-  if (playerSequence[currentIndex] !== ComputerSequence[currentIndex]) {
-    turnDisplay.textContent = 'Wrong!';
-    if (strictMode) {
+ if (playerSequence[currentIndex] !== ComputerSequence[currentIndex]) {
+  if (strictMode) {
+    turnDisplay.textContent = 'Game Over!';
+    setTimeout(startGame, 1000);
+  } else {
+    triesLeft--;
+
+    if (triesLeft <= 0) {
+      turnDisplay.textContent = 'Game Over!';
       setTimeout(startGame, 1000);
     } else {
+      turnDisplay.textContent = 'You have ' + triesLeft + ' tries left!';
       setTimeout(() => {
         playerSequence = [];
         turnDisplay.textContent = level;
         playSequence();
       }, 1000);
     }
-    return;
   }
+  return;
+}
 
 
   if (playerSequence.length === ComputerSequence.length) {

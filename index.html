@@ -6,6 +6,7 @@
     <title>Simon Says Game</title>
     
     <link rel="stylesheet" href="./css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <script defer src="./js/app.js"></script> 
    <audio id="clip1">
   	<source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></source>
@@ -21,7 +22,11 @@
   </audio>
 </head>
 <body>
-  <h1 align="center"><italic><bold>Simon Says Game</bold></italic></h1>
+  <h1>
+  <span class="word1">Simon</span>
+  <span class="word2">Says</span>
+  <span class="word3">Game</span>
+ </h1>
     <div id="outerCircle">
       <div id="topLeft"></div>
       <div id="topRight"></div>
@@ -30,9 +35,9 @@
       <div id="innerCircle">
         <div id="switchesOptions">
           <input type="checkbox" name="switches" id="on">
-          <label for="on">Power</label>
+          <label for="on" class="My2ndText">Power</label>
           <input type="checkbox" name="switches" id="strict">
-          <label for="strict">STRICT</label>
+          <label for="strict" class="My2ndText9">STRICT</label>
   
         </div>
         <div id="start" class="My1stText">Start</div>
