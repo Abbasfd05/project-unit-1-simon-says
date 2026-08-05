@@ -107,20 +107,20 @@ const checkAnswer = () => {
  if (playerSequence[currentIndex] !== ComputerSequence[currentIndex]) {
   if (strictMode) {
     turnDisplay.textContent = 'Game Over!';
-    setTimeout(startGame, 1000);
+    setTimeout(startGame, 3000);
   } else {
     triesLeft--;
 
     if (triesLeft <= 0) {
       turnDisplay.textContent = 'Game Over!';
-      setTimeout(startGame, 1000);
+      setTimeout(startGame, 2000);
     } else {
       turnDisplay.textContent = 'You have ' + triesLeft + ' tries left!';
       setTimeout(() => {
         playerSequence = [];
         turnDisplay.textContent = level;
         playSequence();
-      }, 1000);
+      }, 2000);
     }
   }
   return;
