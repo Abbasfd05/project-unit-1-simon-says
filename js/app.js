@@ -8,6 +8,7 @@ const Strict = document.querySelector('#strict');
 const startButton = document.querySelector('#start');
 const turnDisplay = document.querySelector('#turn');
 const choices = ['topRight', 'topLeft', 'bottomLeft', 'bottomRight'];
+const HighestScoreDisplay = document.querySelector('#HighestScore');
 
 //-------------------------------- Variables --------------------------------//
 let ComputerSequence = [];
@@ -20,29 +21,47 @@ let noise=true;
 let triesLeft = 3;
 
 //-------------------------------- Functions --------------------------------//
+function updateHighestScore() {
+let HighestScore=0;
+if (HighestScoreDisplay.textContent==='') {
+    HighestScore=0;
+}
+else {
+    HighestScore=parseInt(HighestScoreDisplay.textContent);
 
+}
+if (level>HighestScore) {
+
+    HighestScoreDisplay.textContent=level-1;
+
+} else {
+    HighestScoreDisplay.textContent=HighestScore;
+}
+}
 const initializeGame = () => {
   if (Power.checked) {
     PowerOn = true;
     turnDisplay.textContent = '0';
-    console.log('Game Started');
+   updateHighestScore();
+   // console.log('Game Started');
   } else {
     PowerOn = false;
-    turnDisplay.textContent = '';
+    turnDisplay.textContent='';
+    HighestScoreDisplay.textContent='';
     resetGame();
-    console.log('Game Not Started');
+   // console.log('Game Not Started');
   }
 };
 
 const initializeGameStrict = () => {
   if (Strict.checked) {
     strictMode = true;
-    console.log('Strict Game');
+    // console.log('Strict Game');
     turnDisplay.textContent = '0';
+    updateHighestScore();
   } else {
-    turnDisplay.textContent = '0';
     strictMode = false;
-    console.log('none-strict Game');
+    // console.log('non-strict Game');
   }
 };
 
@@ -107,12 +126,14 @@ const checkAnswer = () => {
  if (playerSequence[currentIndex] !== ComputerSequence[currentIndex]) {
   if (strictMode) {
     turnDisplay.textContent = 'Game Over!';
+    updateHighestScore();
     setTimeout(startGame, 3000);
   } else {
     triesLeft--;
 
     if (triesLeft <= 0) {
       turnDisplay.textContent = 'Game Over!';
+    updateHighestScore();
       setTimeout(startGame, 2000);
     } else {
       turnDisplay.textContent = 'You have ' + triesLeft + ' tries left!';
@@ -129,6 +150,9 @@ const checkAnswer = () => {
 
   if (playerSequence.length === ComputerSequence.length) {
     if (level === 6) {
+        
+        updateHighestScore();
+        HighestScoreDisplay.textContent++;
       turnDisplay.textContent = 'WIN!';
       playerTurn = false;
       return;

@@ -33,6 +33,11 @@ h1 {
   animation: flashGlow 1.8s ease-in-out infinite;
   animation-delay: 0.6s;
 }
+.word4 {
+    color:rgb(0, 130, 0);
+    animation: flashGlow 1.8s ease-in-out infinite;
+    animation-delay: 0.9s;
+}
 @keyframes flashGlow {
   0%, 100% {
     filter: brightness(1) drop-shadow(0 0 0px currentColor);
@@ -114,6 +119,6 @@ h1 {
 .My2ndText9 {
     color:#f5f5f5; 
     font-weight:bold;
-    font-size:16px;
-    
+    font-size:18px;
+
 }
