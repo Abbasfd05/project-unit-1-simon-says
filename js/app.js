@@ -149,7 +149,7 @@ const checkAnswer = () => {
 
 
   if (playerSequence.length === ComputerSequence.length) {
-    if (level === 6) {
+    if (level === 5) {
         
         updateHighestScore();
         HighestScoreDisplay.textContent++;
